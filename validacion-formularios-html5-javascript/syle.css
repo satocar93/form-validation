@@ -1,0 +1,144 @@
+/* ********** Reset ********** */
+
+/* Definimos una serie de variables CSS */
+:root {
+    --main-font: sans-serif;
+    --font-size: 16px;
+    --main-color: #4ECDC4;
+    --second-color: #050E10;
+    --main-modal-color: rgba(78, 205, 196, 0.85); /* Mismos colores pero con un poca opacidad. */
+    --second-modal-color: rgba(5, 14, 16, 0.85);
+    --container-width: 1200px; /* Generar containers con una máxima anchura de crecimiento */
+}
+
+html {
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+    /* color: #4ECDC4;
+    background-color: #050E10; */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden; /* Ocultar todo lo que se desborde en sentido horizontal. esto evita el scroll horizontal. */
+}
+
+img {
+    max-width: 100%; /* Adaptar las imágenes a la máxima anchura de su contenedor. */
+    height: auto;
+}
+
+.header {
+    position: sticky;
+    z-index: 997;
+    top: 0;
+    padding: 1rem;
+    background-color: var(--main-color);
+    color: var(--second-color);
+}
+
+.header h1 {
+    margin: 0;
+    text-align: center;
+}
+
+.section {
+    padding: 2rem;
+    padding-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: var(--container-width);
+    min-height: 100vh;
+    text-align: center;
+}
+
+
+/* ContactForm Validations */
+
+.contact-form {
+    --form-ok-color: #4caf50;
+    --form-error-color: #f44336;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.contact-form > * {
+    padding: 0.5rem;
+    margin: 1rem auto;
+    display: block;
+    width: 100%;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.contact-form legend,
+.contact-form-response {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+    font-size: 1rem;
+    font-family: sans-serif;
+    margin-bottom: 0;
+}
+
+.contact-form input[type="submit"] {
+    width: 50%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-form *::placeholder {
+    color: #000;
+}
+
+.contact-form [required]:valid {
+    border:thin solid var(--form-ok-color);
+}
+
+.contact-form [required]:invalid {
+    border:thin solid var(--form-error-color);
+}
+
+.contact-form-error {
+    margin-top: 0;
+    font-size: 80%;
+    background-color: var(--form-error-color);
+    color: #fff;
+    transition: all 800ms ease;
+}
+
+.contact-form-error.is-active {
+    display: block;
+    animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+.none {
+    display: none;
+}
+
+@keyframes show-messages {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
